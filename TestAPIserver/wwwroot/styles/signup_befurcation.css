@@ -1,0 +1,31 @@
+
+#signup {
+    min-height: 100%;
+    background: url(../images/IMG_20171225_193942.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+}
+.logos{
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+.user-logo{
+    background-color: rgba(255, 255, 255);
+    background-image: url(../images/man-user.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.company-logo{
+    background-color: rgb(255, 255, 255);
+    background-image: url(../images/multiple-users-silhouette.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.title{
+    color: #eee;
+    font-weight: 700;
+    font-size: 30px;
+}

@@ -1,0 +1,33 @@
+html, body {
+    font-family: 'Karla', sans-serif;
+}
+
+#datainsert_page{
+    height: 100%;
+    width: 100%;
+    
+    background-image: url("../images/IMG_0550.jpg");
+    background-color: #eee;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+	background-position: center;
+}
+.panel{
+    background-color: #fff;
+    padding: 2% 2%;
+    /*border: 1px solid black;*/
+    border-radius: 10px;
+}
+.submit{
+    margin-bottom: 10px;
+}
+.company-logo{
+    background-image: url("../images/Logo.PNG");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.questionnaire{
+    /*border: 1px solid black;*/
+    border-radius: 10px;
+}

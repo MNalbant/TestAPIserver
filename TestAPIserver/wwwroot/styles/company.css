@@ -1,0 +1,51 @@
+    html, body {
+        height: 100%;
+        font-family: 'Karla', sans-serif;
+    }
+
+#header {
+    background-image: url("../images/Den-Haag-Wooncomplex-Moerwijk-16254Erasmusweg2012.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 66vh;
+    position: relative;
+    text-align: center;
+}
+
+    #header .container .title, .sub-title {
+        color: #fff;
+        font-weight: 700;
+        
+    }
+
+    #header .container .title {
+        font-size: 8rem;
+    }
+
+    .my-6 {
+        margin-top: 4rem !important;
+        margin-bottom: 4rem !important;
+    }
+
+    .mb-6 {
+        margin-bottom: 4rem !important;
+    }
+
+    hr.style14 {
+        border: 0;
+        height: .1rem;
+
+        width: 80%;
+
+        background-image: -webkit-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+        background-image: -moz-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+        background-image: -ms-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+        background-image: -o-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+    }
+    
+
+
+
+

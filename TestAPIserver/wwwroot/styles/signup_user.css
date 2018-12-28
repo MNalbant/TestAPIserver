@@ -1,0 +1,89 @@
+/*{
+    border: 1px solid black;
+}*/
+#signup {
+    min-height: 100%;
+    background: url(../images/IMG_0587.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.user-logo{
+    background-color: rgba(199, 119, 70, 0);
+    background-image: url(../images/man-user.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.company-logo{
+    background-color: rgba(199, 119, 70, 0);
+    background-image: url(../images/multiple-users-silhouette.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+/*.slides{
+    width: 100vw;
+    height: 100vh;
+}*/
+.signup1{
+    height: 100%;
+    background-color: rgba(255,255,255,0.5);
+}
+.header{
+    width: 100%;
+    height: 15vh;
+}
+.signup-content{
+    background-color: rgb(255, 255, 255);
+    margin-bottom: 30px;
+    border-radius: 10px;
+}
+.signup-about .title{
+    color: #eee;
+    font-weight: 700;
+    font-size: 55px;
+}
+.signup-about p{
+    color: #eee;
+    font-weight: 500;
+    font-size: 30px;
+}
+.signup-content .title{
+    color: #333;
+    font-weight: 700;
+    font-size: 32px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+.signup-btn{
+    margin-bottom: 15px;
+}
+.signup-content ul{
+    list-style: none;
+    padding: 0;
+}
+.signup-title{
+    color: #333;
+    font-weight: 600;
+    font-size: 16px;
+    margin: 0;
+    margin-bottom: 3px;
+}
+
+.logos{
+    width: 150px;
+    height: 150px;
+    border-radius: 20px;
+}
+
+.title{
+    color: #eee;
+    font-weight: 700;
+    font-size: 32px;
+}
+
+@media only screen and (max-width: 575px){
+.signup-content{
+    border-radius: 0%;
+}
+
+}

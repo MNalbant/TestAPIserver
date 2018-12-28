@@ -1,0 +1,68 @@
+/*{
+    border: 1px solid black;
+}*/
+#signup {
+    background: url(../images/IMG_0487.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100%;
+}
+.header{
+    width: 100%;
+    height: 5vh;
+}
+.slides{
+    height: 100%;
+}
+.signup-content{
+    background-color: rgb(255, 255, 255);
+    margin-bottom: 30px;
+    border-radius: 2%;
+    
+}
+.signup-about .title{
+    color: #eee;
+    font-weight: 700;
+    font-size: 55px;
+}
+.signup-about p{
+    color: #eee;
+    font-weight: 500;
+    font-size: 30px;
+}
+.signup-content .row{
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+.signup-content .title{
+    color: #333;
+    font-weight: 700;
+    font-size: 32px;
+    
+}
+.signup-btn{
+    margin-bottom: 15px;
+}
+.signup-content ul{
+    list-style: none;
+    padding: 0;
+}
+.signup-title{
+    color: #333;
+    font-weight: 600;
+    font-size: 16px;
+    margin: 0;
+    margin-bottom: 3px;
+}
+.company-name{
+    background-color: #fff;
+    height: 60vh;
+    border-radius: 2%;
+}
+@media only screen and (max-width: 575px){
+.signup-content{
+    border-radius: 0%;
+}
+
+}
