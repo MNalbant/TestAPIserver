@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -12,56 +11,56 @@ namespace TestAPIserver.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UsersController : ControllerBase
+    public class CompaniesController : ControllerBase
     {
         private readonly DBContext _context;
 
-        public UsersController(DBContext context)
+        public CompaniesController(DBContext context)
         {
             _context = context;
         }
 
-        // GET: api/Users
+        // GET: api/Companies
         [HttpGet]
-        public IEnumerable<User> GetUser()
+        public IEnumerable<Company> GetCompany()
         {
-            return _context.Users;
+            return _context.Companies;
         }
 
-        // GET: api/Users/5
+        // GET: api/Companies/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetUser([FromRoute] int id)
+        public async Task<IActionResult> GetCompany([FromRoute] int id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var user = await _context.Users.FindAsync(id);
+            var company = await _context.Companies.FindAsync(id);
 
-            if (user == null)
+            if (company == null)
             {
                 return NotFound();
             }
 
-            return Ok(user);
+            return Ok(company);
         }
 
-        // PUT: api/Users/5
+        // PUT: api/Companies/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutUser([FromRoute] int id, [FromBody] User user)
+        public async Task<IActionResult> PutCompany([FromRoute] int id, [FromBody] Company company)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != user.Id)
+            if (id != company.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(user).State = EntityState.Modified;
+            _context.Entry(company).State = EntityState.Modified;
 
             try
             {
@@ -69,7 +68,7 @@ namespace TestAPIserver.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!UserExists(id))
+                if (!CompanyExists(id))
                 {
                     return NotFound();
                 }
@@ -82,45 +81,45 @@ namespace TestAPIserver.Controllers
             return NoContent();
         }
 
-        // POST: api/Users
+        // POST: api/Companies
         [HttpPost]
-        public async Task<IActionResult> PostUser(User user)
+        public async Task<IActionResult> PostCompany([FromBody] Company company)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            _context.Users.Add(user);
+            _context.Companies.Add(company);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetUser", new { id = user.Id }, user);
+            return CreatedAtAction("GetCompany", new { id = company.Id }, company);
         }
 
-        // DELETE: api/Users/5
+        // DELETE: api/Companies/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteUser([FromRoute] int id)
+        public async Task<IActionResult> DeleteCompany([FromRoute] int id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var user = await _context.Users.FindAsync(id);
-            if (user == null)
+            var company = await _context.Companies.FindAsync(id);
+            if (company == null)
             {
                 return NotFound();
             }
 
-            _context.Users.Remove(user);
+            _context.Companies.Remove(company);
             await _context.SaveChangesAsync();
 
-            return Ok(user);
+            return Ok(company);
         }
 
-        private bool UserExists(int id)
+        private bool CompanyExists(int id)
         {
-            return _context.Users.Any(e => e.Id == id);
+            return _context.Companies.Any(e => e.Id == id);
         }
     }
 }

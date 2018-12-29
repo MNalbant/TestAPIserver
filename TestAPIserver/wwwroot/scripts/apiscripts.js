@@ -14,7 +14,7 @@ function func1() {
         "method": "POST",
         "headers": {
             "Content-Type": "application/json",
-            "cache-control": "no-cache",
+            "cache-control": "no-cache"
         },
         "processData": false,
         "data": l

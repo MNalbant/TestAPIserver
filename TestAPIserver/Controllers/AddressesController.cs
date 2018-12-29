@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -12,56 +11,56 @@ namespace TestAPIserver.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UsersController : ControllerBase
+    public class AddressesController : ControllerBase
     {
         private readonly DBContext _context;
 
-        public UsersController(DBContext context)
+        public AddressesController(DBContext context)
         {
             _context = context;
         }
 
-        // GET: api/Users
+        // GET: api/Addresses
         [HttpGet]
-        public IEnumerable<User> GetUser()
+        public IEnumerable<Address> GetAddress()
         {
-            return _context.Users;
+            return _context.Addresses;
         }
 
-        // GET: api/Users/5
+        // GET: api/Addresses/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetUser([FromRoute] int id)
+        public async Task<IActionResult> GetAddress([FromRoute] int id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var user = await _context.Users.FindAsync(id);
+            var address = await _context.Addresses.FindAsync(id);
 
-            if (user == null)
+            if (address == null)
             {
                 return NotFound();
             }
 
-            return Ok(user);
+            return Ok(address);
         }
 
-        // PUT: api/Users/5
+        // PUT: api/Addresses/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutUser([FromRoute] int id, [FromBody] User user)
+        public async Task<IActionResult> PutAddress([FromRoute] int id, [FromBody] Address address)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != user.Id)
+            if (id != address.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(user).State = EntityState.Modified;
+            _context.Entry(address).State = EntityState.Modified;
 
             try
             {
@@ -69,7 +68,7 @@ namespace TestAPIserver.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!UserExists(id))
+                if (!AddressExists(id))
                 {
                     return NotFound();
                 }
@@ -82,45 +81,45 @@ namespace TestAPIserver.Controllers
             return NoContent();
         }
 
-        // POST: api/Users
+        // POST: api/Addresses
         [HttpPost]
-        public async Task<IActionResult> PostUser(User user)
+        public async Task<IActionResult> PostAddress([FromBody] Address address)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            _context.Users.Add(user);
+            _context.Addresses.Add(address);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetUser", new { id = user.Id }, user);
+            return CreatedAtAction("GetAddress", new { id = address.Id }, address);
         }
 
-        // DELETE: api/Users/5
+        // DELETE: api/Addresses/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteUser([FromRoute] int id)
+        public async Task<IActionResult> DeleteAddress([FromRoute] int id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var user = await _context.Users.FindAsync(id);
-            if (user == null)
+            var address = await _context.Addresses.FindAsync(id);
+            if (address == null)
             {
                 return NotFound();
             }
 
-            _context.Users.Remove(user);
+            _context.Addresses.Remove(address);
             await _context.SaveChangesAsync();
 
-            return Ok(user);
+            return Ok(address);
         }
 
-        private bool UserExists(int id)
+        private bool AddressExists(int id)
         {
-            return _context.Users.Any(e => e.Id == id);
+            return _context.Addresses.Any(e => e.Id == id);
         }
     }
 }
