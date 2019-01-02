@@ -125,7 +125,7 @@ namespace TestAPIserver.Controllers
             {
                 foreach(ClosedAnswer c in q.ClosedAnswers)
                 {
-                    if (c.Answered)
+                    if (c.Response)
                     {
                         filled = true; 
                     }

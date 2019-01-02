@@ -10,9 +10,9 @@ namespace TestAPIserver.Models
     public class OpenAnswer
     {
         public int Id { get; set; }
-        [Required]
+        //[Required]
         public string Title { get; set; }
-        [Required]
+        //[Required]
         public string Response { get; set; }
 
         [ForeignKey("Question")]

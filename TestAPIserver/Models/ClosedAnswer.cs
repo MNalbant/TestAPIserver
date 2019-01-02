@@ -9,9 +9,9 @@ namespace TestAPIserver.Models
         public class ClosedAnswer
         {
             public int Id { get; set; }
-            [Required]
+            //[Required]
             public string Title { get; set; }
-            public bool Answered { get; set; }
+            public bool Response { get; set; }
 
             public Question Question { get; set; }
     }

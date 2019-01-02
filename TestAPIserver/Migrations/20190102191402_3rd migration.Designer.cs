@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TestAPIserver.Models;
 
 namespace TestAPIserver.Migrations
 {
     [DbContext(typeof(DBContext))]
-    partial class DBContextModelSnapshot : ModelSnapshot
+    [Migration("20190102191402_3rd migration")]
+    partial class _3rdmigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,7 +53,8 @@ namespace TestAPIserver.Migrations
 
                     b.Property<bool>("Response");
 
-                    b.Property<string>("Title");
+                    b.Property<string>("Title")
+                        .IsRequired();
 
                     b.HasKey("Id");
 
@@ -84,9 +87,11 @@ namespace TestAPIserver.Migrations
 
                     b.Property<int?>("Question");
 
-                    b.Property<string>("Response");
+                    b.Property<string>("Response")
+                        .IsRequired();
 
-                    b.Property<string>("Title");
+                    b.Property<string>("Title")
+                        .IsRequired();
 
                     b.HasKey("Id");
 
@@ -103,11 +108,12 @@ namespace TestAPIserver.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("QuestionType");
+                    b.Property<int>("QustionType");
 
                     b.Property<int?>("SurveyId");
 
-                    b.Property<string>("_Question");
+                    b.Property<string>("_Question")
+                        .IsRequired();
 
                     b.HasKey("Id");
 
@@ -122,13 +128,15 @@ namespace TestAPIserver.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("CompanyId");
+                    b.Property<int>("CompanyId");
 
-                    b.Property<string>("Description");
+                    b.Property<string>("Description")
+                        .IsRequired();
 
                     b.Property<DateTime>("EndDate");
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Name")
+                        .IsRequired();
 
                     b.Property<int>("Reward");
 
@@ -206,7 +214,8 @@ namespace TestAPIserver.Migrations
                 {
                     b.HasOne("TestAPIserver.Models.Company", "Company")
                         .WithMany()
-                        .HasForeignKey("CompanyId");
+                        .HasForeignKey("CompanyId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("TestAPIserver.Models.SurveyUser", b =>

@@ -9,9 +9,9 @@ namespace TestAPIserver.Models
     public class Question
     {
         public int Id { get; set; }
-        [Required]
+        //[Required]
         public string _Question { get; set; }
-        public QustionType QustionType { get; set; }
+        public QustionType QuestionType { get; set; }
         public List<ClosedAnswer> ClosedAnswers { get; set; }
         public OpenAnswer OpenAnswer { get; set; }
 
