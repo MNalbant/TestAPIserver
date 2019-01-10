@@ -22,103 +22,158 @@
 
 <body>
     <section id="navheader"></section>
-
-    <section id="datainsert_page">
-        <div class="container-fluid">
-            <div class="row pt-5 pb-3">
-                <div class="col-2"></div>
-
-                <div class="col-8 panel">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-9">
-                                <h2>Question</h2>
-                                <div class="w-100"></div>
-                                <p>Here will have discription of question.</p>
-                            </div>
-                            <div class="col-3 company-logo"></div>
-                        </div>
-                        <form>
-                            <div class="form-group">
-                                <label for="exampleFormControlInput1">1. Question</label>
-                                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="anwser">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleFormControlInput1">2. Question</label>
-                                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="anwser">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleFormControlTextarea1">3. Question</label>
-                                <p>what is your opinion about question 3?</p>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="resize: none"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="formControlRange">4. How much do you like to go to gym?</label>
-                                <small>(right for like and left for dislike.)</small>
-                                <div class="row">
-                                    <div class="col">1</div>
-                                    <div class="col">2</div>
-                                    <div class="col">3</div>
-                                    <div class="col">4</div>
-                                    <div class="col">5</div>
-                                    <div class="col">6</div>
-                                    <div class="col">7</div>
-                                    <div class="col">8</div>
-                                    <div class="col">9</div>
-                                    <div class="col">10</div>
-                                </div>
-                                <input type="range" class="custom-range" min="1" max="10" step="1" id="customRange2">
-                            </div>
-                            <div class="form-group">
-                                <label for="formControlRange">5. Your gender.</label>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
-                                        value="option1" checked>
-                                    <label class="form-check-label" for="exampleRadios1">
-                                        Male
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
-                                        value="option2">
-                                    <label class="form-check-label" for="exampleRadios2">
-                                        Female
-                                    </label>
-                                </div>
-                            </div>
-                            <label class="form-group">6. Multiple Choice</lable>
-                                <small>(Chose options that you like.)</small>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                                    <label class="form-check-label" for="defaultCheck1">
-                                        option 1
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-                                    <label class="form-check-label" for="defaultCheck2">
-                                        option 2
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck3">
-                                    <label class="form-check-label" for="defaultCheck3">
-                                        option 3
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck4">
-                                    <label class="form-check-label" for="defaultCheck4">
-                                        option 4
-                                    </label>
-                                </div>
-
-                                <button type="submit" class="btn btn-primary submit mt-3">Submit</button>
-                        </form>
-
+    <section id="datainsert_page" class="d-flex h-100 py-5">
+        <div class="container d-flex h-100">
+            <div class="row mx-auto my-auto w-100 align-self-center rounded py-3" style="background-color:#fff">
+                <div class="col-lg-10 offset-lg-1 mb-3">
+                    <div class="float-left">
+                        <h2 id="Survey-Title"></h2>
+                        <h4 id="Survey-Descr"></h4>
+                    </div>
+                    <div class="float-right">
+                        <img src="images/Logo.PNG" />
                     </div>
                 </div>
-                <div class="col-2"></div>
+
+                <div class="col-lg-10 offset-lg-1 ">
+                    <form id="Main-Survey">
+                        <!--
+                        <div class="form-group">
+                            <legend id="Input-Label-Question-2" class="col-form-label"></legend>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="Input-Question-2-Option" id="inlineRadio3"
+                                    value="option1">
+                                <label id="Input-Question-2-Option-1" class="form-check-label" for="inlineRadio3"></label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="Input-Question-2-Option" id="inlineRadio4"
+                                    value="option2">
+                                <label id="Input-Question-2-Option-2" class="form-check-label" for="inlineRadio4"></label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <legend id="Input-Label-Question-3" class="col-form-label"></legend>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="Input-Question-3-Option" id="inlineRadio5"
+                                    value="option1">
+                                <label id="Input-Question-3-Option-1" class="form-check-label" for="inlineRadio5"></label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="Input-Question-3-Option" id="inlineRadio6"
+                                    value="option2">
+                                <label id="Input-Question-3-Option-2" class="form-check-label" for="inlineRadio6"></label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <legend id="Input-Label-Question-4" class="col-form-label"></legend>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="Input-Question-4-Option" id="inlineRadio7"
+                                    value="option1">
+                                <label id="Input-Question-4-Option-1" class="form-check-label" for="inlineRadio7"></label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="Input-Question-4-Option" id="inlineRadio8"
+                                    value="option2">
+                                <label id="Input-Question-4-Option-2" class="form-check-label" for="inlineRadio8"></label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <legend id="Input-Label-Question-5" class="col-form-label"></legend>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="Input-Question-5-Option" id="inlineRadio9"
+                                    value="option1">
+                                <label id="Input-Question-5-Option-1" class="form-check-label" for="inlineRadio9"></label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="Input-Question-5-Option" id="inlineRadio10"
+                                    value="option2">
+                                <label id="Input-Question-5-Option-2" class="form-check-label" for="inlineRadio10"></label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <legend id="Input-Label-Question-6" class="col-form-label"></legend>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="Input-Question-6-Option" id="inlineRadio11"
+                                    value="option1">
+                                <label id="Input-Question-6-Option-1" class="form-check-label" for="inlineRadio11"></label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="Input-Question-6-Option" id="inlineRadio12"
+                                    value="option2">
+                                <label id="Input-Question-6-Option-2" class="form-check-label" for="inlineRadio12"></label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <legend id="Input-Label-Question-7" class="col-form-label"></legend>
+                            <div class="form-check ">
+                                <input class="form-check-input" type="checkbox" id="checkbox1" value="option1">
+                                <label id="Input-Question-7-Option-1" class="form-check-label" for="checkbox1"></label>
+                            </div>
+                            <div class="form-check ">
+                                <input class="form-check-input" type="checkbox" id="checkbox2" value="option2">
+                                <label id="Input-Question-7-Option-2" class="form-check-label" for="checkbox2"></label>
+                            </div>
+                            <div class="form-check ">
+                                <input class="form-check-input" type="checkbox" id="checkbox3" value="option3">
+                                <label id="Input-Question-7-Option-3" class="form-check-label" for="checkbox3"></label>
+                            </div>
+                            <div class="form-check ">
+                                <input class="form-check-input" type="checkbox" id="checkbox4" value="option4">
+                                <label id="Input-Question-7-Option-4" class="form-check-label" for="checkbox4"></label>
+                            </div>
+                            <div class="form-check ">
+                                <input class="form-check-input" type="checkbox" id="checkbox5" value="option5">
+                                <label id="Input-Question-7-Option-5" class="form-check-label" for="checkbox5"></label>
+                            </div>
+                            <div class="form-check ">
+                                <input class="form-check-input" type="checkbox" id="checkbox6" value="option6">
+                                <label id="Input-Question-7-Option-6" class="form-check-label" for="checkbox6"></label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <legend id="Input-Label-Question-8" class="col-form-label"></legend>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" id="inlineRadio15" value="option1">
+                                <label id="Input-Question-8-Option-1" class="form-check-label" for="inlineRadio15"></label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" id="inlineRadio16" value="option2">
+                                <label id="Input-Question-8-Option-2" class="form-check-label" for="inlineRadio16"></label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <legend id="Input-Label-Question-9" class="col-form-label"></legend>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" id="inlineRadio17" value="option1">
+                                <label id="Input-Question-9-Option-1" class="form-check-label" for="inlineRadio17"></label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" id="inlineRadio18" value="option2">
+                                <label id="Input-Question-9-Option-2" class="form-check-label" for="inlineRadio18"></label>
+                            </div>
+                        </div>
+
+                        <div  class="form-group">
+                            <label id="Input-Label-Question-10" class="col-form-label">10. Waarom zou u niet uw data willen verkopen?</label>
+                            <input type="text" class="form-control" id="Input-Question-10">
+                        </div>
+-->
+                        <div id="Button-Group" class="row">
+                            <div class="col-lg-6 offset-lg-3">
+                                <button type="button" class="btn btn-success submit mt-3 float-right" data-toggle="modal"
+                                    data-target="#exampleModal" onclick="submitForm()">Submit</button>
+                                <button type="reset" class="btn btn-danger mt-3 float-left">Reset</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
@@ -134,6 +189,161 @@
 
     <script>
         $("#navheader").load("./includes/navheader.html");
+
+        $.getJSON("./test/Test-Survey.json", function (data) {
+            var Survey = {
+                Title: "",
+                Description: "",
+                Reward: 0,
+                Questions: []
+            };
+
+            Survey.Title = data.Name;
+            Survey.Description = data.Description;
+            Survey.Reward = data.Reward;
+
+            data.Questions.forEach(element => {
+                var Question = {
+                    OrderNR: 0,
+                    Name: "",
+                    Type: null,
+                    Options: []
+                }
+
+                Question.OrderNR = element.Id;
+                Question.Name = element._Question;
+
+
+                switch (element.QuestionType) {
+                    case 0:
+                        Question.Type = "OpenQuestion";
+                        break;
+                    case 1:
+                        element.ClosedAnswers.forEach(e => {
+                            Question.Options.push(e.Title)
+                        });
+                        Question.Type = "ClosedQuestion";
+                        break;
+                    case 3:
+                        element.ClosedAnswers.forEach(e => {
+                            Question.Options.push(e.Title)
+                        });
+                        Question.Type = "MultiQuestion";
+                        break;
+                }
+
+                Survey.Questions.push(Question);
+            });
+
+            fillHTMl(Survey);
+        });
+
+        var MainSurvey = document.getElementById('Main-Survey');
+
+        function fillHTMl(survey) {
+
+            document.getElementById('Survey-Title').innerHTML = survey.Title;
+            document.getElementById('Survey-Descr').innerHTML = survey.Description;
+
+            for (var i = 0; i < survey.Questions.length; i++) {
+                // var LabelID = 'Input-Label-Question-' + survey.Questions[i].OrderNR;
+                // document.getElementById(LabelID).innerHTML = survey.Questions[i].OrderNR + '. ' + survey.Questions[i].Name;
+
+                var QuestionNumber = 'Question-' + survey.Questions[i].OrderNR;
+
+                var LabelText = survey.Questions[i].OrderNR + '. ' + survey.Questions[i].Name;
+
+                var formgroup = '<div class="form-group" id="' + QuestionNumber + '"> </div>';
+                var QuestionTitle;
+
+                $(formgroup).insertBefore("#Button-Group");
+                
+                switch (survey.Questions[i].Type) {
+                    case "OpenQuestion":
+                        QuestionTitle = '<label id="Input-Label-' + QuestionNumber + '" class="col-form-label" for="Input-"' + QuestionNumber + '>' + LabelText + '</label>';
+                        $("#" + QuestionNumber).append(QuestionTitle)
+
+                        var inputfield = '<input type="text" class="form-control" name="' + QuestionNumber + '-Answer" id="Input-' + QuestionNumber + '">'
+                        $("#" + QuestionNumber).append(inputfield)
+                        break;
+                    case "ClosedQuestion":
+                        QuestionTitle = '<legend id="Input-Label-' + QuestionNumber + '" class="col-form-label">' + LabelText + '</legend>';
+                        $("#" + QuestionNumber).append(QuestionTitle)
+
+                        for (var j = 0; j < survey.Questions[i].Options.length; j++) {
+                            var RadioBTNID = 'Input-Question-' + survey.Questions[i].OrderNR + '-Option-' + (j + 1);
+                            var RadioInlineID = QuestionNumber + "-" + "inlineRadio" + (j + 1);
+                            // document.getElementById(RadioBTNID).innerHTML = survey.Questions[i].Options[j];
+
+                            var RadioBTNTitle = survey.Questions[i].Options[j];
+
+                            var Radiobtn = '<div class="form-check form-check-inline">' +
+                                '<input class="form-check-input" type="radio" name="' + QuestionNumber + '-Answer" id="' + RadioInlineID + '" value="' + RadioBTNTitle  + '">' +
+                                '<label id="' + RadioBTNID + '" class="form-check-label" for="' + RadioInlineID + '"> ' + RadioBTNTitle + '</label>' +
+                                '</div>';
+                            
+                                
+                            $("#" + QuestionNumber).append(Radiobtn)
+                        }
+                        break;
+                    case "MultiQuestion":
+                        QuestionTitle = '<legend id="Input-Label-' + QuestionNumber + '" class="col-form-label">' + LabelText + '</legend>';
+                        $("#" + QuestionNumber).append(QuestionTitle)
+
+                        for (var j = 0; j < survey.Questions[i].Options.length; j++) {
+                            var CheckBoxID = 'Question-' + survey.Questions[i].OrderNR + '-checkbox-' + (j + 1);
+
+                            // document.getElementById(RadioBTNID).innerHTML = survey.Questions[i].Options[j];
+
+                            var CheckBoxTitle = survey.Questions[i].Options[j];
+
+                            var CheckBoxbtn = '<div class="form-check">' + 
+                                '<input class="form-check-input" type="checkbox" name="Question-' + survey.Questions[i].OrderNR + '-Answer-' + (j + 1) + '" id="' + CheckBoxID + '" value="'+ CheckBoxTitle + '">' + 
+                                '<label id="Input-Question-' + survey.Questions[i].OrderNR + '-Option-' + (j + 1)+ '" class="form-check-label" for="' + CheckBoxID + '"> ' + CheckBoxTitle + '</label>' + 
+                                '</div>';
+                            
+                            $("#" + QuestionNumber).append(CheckBoxbtn);
+                        }
+
+                        break;
+                }
+            }
+
+
+        }
+
+
+        function submitForm() {
+            //console.log($('form').serializeArray());
+            var survey = {
+			Name: "NAme"
+
+	};
+    var t = JSON.stringify(survey);
+
+
+            var l = JSON.stringify($('form').serializeArray());
+            console.log(l);
+
+
+var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "https://localhost:44387/api/surveys",
+        "method": "POST",
+        "headers": {
+                "Content-Type": "application/json",
+                "cache-control": "no-cache",
+                "Access-Control-Allow-Headers" : "x-requested-with"
+        },
+        "processData": false,
+        "data": l
+};
+
+$.ajax(settings).done(function (response) {
+        console.log(response);
+});
+        }
     </script>
 
 </body>

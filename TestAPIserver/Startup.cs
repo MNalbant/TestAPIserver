@@ -32,7 +32,14 @@ namespace TestAPIserver
             services.AddDbContext<DBContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("DBContext")));
 
-            services.AddCors();
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                    builder => builder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials());
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,8 +54,7 @@ namespace TestAPIserver
                 app.UseHsts();
             }
 
-            app.UseCors(builder =>
-       builder.WithOrigins("http://127.0.0.1"));
+            app.UseCors("CorsPolicy");
 
             app.UseDefaultFiles();
             app.UseStaticFiles();

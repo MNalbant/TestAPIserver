@@ -1,27 +1,16 @@
 html, body {
     font-family: 'Karla', sans-serif;
-}
-
-#datainsert_page{
     height: 100%;
-    width: 100%;
-    
     background-image: url("../images/IMG_0550.jpg");
-    background-color: #eee;
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
     background-attachment: fixed;
-	background-position: center;
+
+    display: flex;
+    flex-direction: column
 }
-.panel{
-    background-color: #fff;
-    padding: 2% 2%;
-    /*border: 1px solid black;*/
-    border-radius: 10px;
-}
-.submit{
-    margin-bottom: 10px;
-}
+
 .company-logo{
     background-image: url("../images/Logo.PNG");
     background-repeat: no-repeat;
@@ -30,4 +19,20 @@ html, body {
 .questionnaire{
     /*border: 1px solid black;*/
     border-radius: 10px;
+}
+
+#datainsert_page form legend , #datainsert_page form label.col-form-label {
+    font-size: 1.2rem !important;
+}
+
+#datainsert_page form label {
+    font-size: 1.05rem !important;
+}
+
+#datainsert_page form input[type=radio] , #datainsert_page form input[type=checkbox]{
+    transform:scale(1.075);
+}
+
+#datainsert_page form .form-check.form-check-inline , #datainsert_page form .form-check {
+    margin-left: 1rem;
 }

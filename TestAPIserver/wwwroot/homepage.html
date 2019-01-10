@@ -26,11 +26,14 @@
         <div id="header-content" class="d-flex flex-column my-auto align-self-center w-100">
             <div class="container d-flex h-100">
                 <div class="row h-100 mx-auto align-items-center">
-                    <div class="col-lg-12">
-                            <h1 id="title" class="display-3">DMN</h>
+                    <div id="banner-container" class="col-lg-12">
+                            <!-- For large devices -->
+                            <h1 id="title" class="display-3 d-none d-sm-block">DMN</h1>
+                            <!-- For small devices -->
+                            <h1 id="title" class="display-4 d-block d-sm-none">DMN</h1>
                             <h2 id="sub-title" class="">Making your data be worth something</h2>
                         <div class="row mt-5">
-                            <div class="col-lg-6 col-md-12">
+                            <div class="col-lg-6 d-none d-sm-block col-md-12">
                                 <button onclick="location.href='signup_user.html';" type="button" class="btn btn-dark btn-lg btn-block">Join Us</button>
                             </div>
                             <div class="col-lg-6 d-none d-lg-block">
@@ -43,7 +46,56 @@
             </div>
         </div>
     </section>
+    
+
+    <section id="instruction">
+        <div class="container-fluid px-5">
+            <div class="row mb-6">
+                <h1 class="col-lg-12 my-5" style="text-align:center">Get Started</h1>
+
+                <div id="" class="col-lg-3 offset-lg-2">
+                    <img class="img-fluid mx-auto my-3 d-block" src="images/JobListScreenShot.PNG" />
+                </div>
+
+                <div id="" class="col-lg-5 align-self-center">
+                    <h3>First Step</h3>
+                    <p>
+                        View the jobs that are posted on the job list. Choose one of the jobs that you prefer and click on it.
+                    </p>
+                </div>
+            </div>
+            <hr class="style14">
+            <div class="row my-6">
+                <div id="" class="col-lg-5 offset-lg-2 align-self-center">
+                    <h3>After that</h3>
+                    <p>
+                        After choosing a job and click on it, you can see the details about the job. Such as the description, price, required time to do the job etc. Accept it and start earning money!
+                    </p>
+                </div>
+
+                <div id="" class="col-lg-3">
+                    <img class="img-fluid mx-auto d-block" src="images/JobContentScreenShot.PNG" />
+                </div>
+            </div>
+            <hr class="style14">
+            <div class="row my-6">
+                <div id="" class="col-lg-3 offset-lg-2">
+                    <img class="img-fluid mx-auto d-block my-3" src="images/DataInsertScreenShot.PNG" />
+                </div>
+
+                <div id="" class="col-lg-5 align-self-center">
+                    <h3>Almost done...</h3>
+                    <p>
+                        You will work on a survey. Complete those questions and submit them to the website.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    
     <section id="about">
+        <!--
         <div class="container">
             <div class="row about-container">
                 <div class="col-lg-6 content order-lg-1 order-2">
@@ -64,10 +116,9 @@
                 <div class="col-lg-6 background order-lg-2 order-1 wow fadeInRight"></div>
             </div>
         </div>
-        
+        -->
     </section>
 
-    
     <section id="cases">
         <!--
     <h1 class="m-lg-auto" style="text-align:center">Cases</h1>
@@ -168,34 +219,7 @@
             -->
     </section>
     
-    <section id="laws">
-        <h1 class="m-lg-auto" style="text-align:center">Privacy Laws</h1>
-        <div class="container-fluid pt-3">
-            <div class="row">
-                <div class="col-lg-8 offset-lg-2">
-                    <p class="lead mb-0">What is DMN's privacy policy?</p>
-                    <p>
-                        DMN is a Dutch-based company that strictly adheres to GDPR. DMN's motto is to be a company that acts as the bridge between the respondent and the company that wrote the survey. 
-                        Therefore DMN does not directly trade your personal information.
-                    </p>
-                    <p class="lead mb-0">Can DMN see the responder's personal information?</p>
-                    <p>
-                        By default, DMN does not see the responder's personal information. 
-                        However, the personal information of the respondent is essentially divided between the part that is provided to the company and the part that is provided selectively, 
-                        and the company that provided the survey within the range agreed by the respondent will be able to view the personal information.
-                    </p>
-                    <p class="lead mb-0">How much personal information does DMN store?</p>
-                    <p>
-                        Your personal data will be stored for 3 years, after which you will be notified of your personal information every year, and you can ask for removal of your data at this time.
-                    </p>
-                    <p class="lead mb-0">Is the response of my survey guaranteed to be anonymous?</p>
-                    <p>
-                        This depends on the choice of the company providing the survey, and respondents in the survey can choose at the beginning of the survey about anonymity.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
+    
 
     <section id="footer">
         

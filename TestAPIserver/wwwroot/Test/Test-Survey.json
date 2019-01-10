@@ -1,0 +1,266 @@
+{
+  "Name": "Data enquete",
+  "Company": {
+    "Id": 3
+  },
+  "Description": "Onderzoek met betrekking tot Data verkopen in Moerwijk",
+  "Reward": 5,
+  "StartDate": "1997-07-16T19:20+01:00",
+  "EndDate": "1997-07-16T19:20+01:00",
+  "Questions": [
+    {
+      "Id": 1,
+      "_Question": "Gebruikt u Social Media?",
+      "QuestionType": 1,
+      "ClosedAnswers": [
+        {
+          "Id": 1,
+          "Title": "Ja",
+          "Response": false,
+          "question": {
+            "Id": 1
+          }
+        },
+        {
+          "Id": 1,
+          "Title": "Nee",
+          "Response": false,
+          "question": {
+            "Id": 1
+          }
+        }
+      ]
+    },
+    {
+      "Id": 2,
+      "_Question": "Bent u bekend met de term: 'Personal Data'?",
+      "QuestionType": 1,
+      "ClosedAnswers": [
+        {
+          "Id": 1,
+          "Title": "Ja",
+          "Response": false,
+          "Question": {
+            "Id": 2
+          }
+        },
+        {
+          "Id": 2,
+          "Title": "Nee",
+          "Response": false,
+          "Question": {
+            "Id": 2
+          }
+        }
+      ]
+    },
+    {
+      "Id": 3,
+      "_Question": "Let u op welke data u deelt met websites (bijvoorbeeld, u bent u bewust welke data u deelt met Facebook of andere social media websites)",
+      "QuestionType": 1,
+      "ClosedAnswers": [
+        {
+          "Id": 1,
+          "Title": "Ja",
+          "Response": false,
+          "Question": {
+            "Id": 3
+          }
+        },
+        {
+          "Id": 2,
+          "Title": "Nee",
+          "Response": false,
+          "Question": {
+            "Id": 3
+          }
+        }
+      ]
+    },
+    {
+      "Id": 4,
+      "_Question": "Bent u bekend met Data verkopen of Datafuelled Jobs?",
+      "QuestionType": 1,
+      "ClosedAnswers": [
+        {
+          "Id": 1,
+          "Title": "Ja",
+          "Response": false,
+          "Question": {
+            "Id": 4
+          }
+        },
+        {
+          "Id": 2,
+          "Title": "Nee",
+          "Response": false,
+          "Question": {
+            "Id": 4
+          }
+        }
+      ]
+    },
+    {
+      "Id": 5,
+      "_Question": "Zou u uw data verkopen aan bedrijven?",
+      "QuestionType": 1,
+      "ClosedAnswers": [
+        {
+          "Id": 1,
+          "Title": "Ja",
+          "Response": false,
+          "Question": {
+            "Id": 5
+          }
+        },
+        {
+          "Id": 2,
+          "Title": "Nee",
+          "Response": false,
+          "Question": {
+            "Id": 5
+          }
+        }
+      ]
+    },
+    {
+      "Id": 6,
+      "_Question": "Bent u bekend met Data verkopen of Datafuelled Jobs?",
+      "QuestionType": 1,
+      "ClosedAnswers": [
+        {
+          "Id": 1,
+          "Title": "Ja",
+          "Response": false,
+          "Question": {
+            "Id": 6
+          }
+        },
+        {
+          "Id": 2,
+          "Title": "Nee",
+          "Response": false,
+          "Question": {
+            "Id": 6
+          }
+        }
+      ]
+    },
+    {
+      "Id": 7,
+      "_Question": "Welke data zou u verkopen?",
+      "QuestionType": 3,
+      "ClosedAnswers": [
+        {
+          "Id": 1,
+          "Title": "Persoonlijke data (Leeftijd, geslacht, naam, email, woonplaats, opleiding)",
+          "Response": false,
+          "Question": {
+            "Id": 7
+          }
+        },
+        {
+          "Id": 2,
+          "Title": "Financiële data (Inkomen, Creditcard data)",
+          "Response": false,
+          "Question": {
+            "Id": 7
+          }
+        },
+        {
+          "Id": 3,
+          "Title": "Aankopen",
+          "Response": false,
+          "Question": {
+            "Id": 7
+          }
+        },
+        {
+          "Id": 4,
+          "Title": "Social Media gebruik (Posts, Likes, Contacten)",
+          "Response": false,
+          "Question": {
+            "Id": 7
+          }
+        },
+        {
+          "Id": 5,
+          "Title": "Cookies",
+          "Response": false,
+          "Question": {
+            "Id": 7
+          }
+        },
+        {
+          "Id": 6,
+          "Title": "Mening delen over producten, bedrijven, etc.",
+          "Response": false,
+          "Question": {
+            "Id": 7
+          }
+        }
+      ]
+    },
+    {
+      "Id": 8,
+      "_Question": "Als u uw data verkoopt, zou u willen weten welke bedrijven toegang hebben tot u data?",
+      "QuestionType": 1,
+      "ClosedAnswers": [
+        {
+          "Id": 1,
+          "Title": "Ja",
+          "Response": false,
+          "Question": {
+            "Id": 8
+          }
+        },
+        {
+          "Id": 2,
+          "Title": "Nee",
+          "Response": false,
+          "Question": {
+            "Id": 8
+          }
+        }
+      ]
+    },
+    {
+      "Id": 9,
+      "_Question": "Als u uw data verkoopt, wilt u dan weten waarvoor het gebruikt wordt?",
+      "QuestionType": 1,
+      "ClosedAnswers": [
+        {
+          "Id": 1,
+          "Title": "Ja",
+          "Response": false,
+          "Question": {
+            "Id": 9
+          }
+        },
+        {
+          "Id": 2,
+          "Title": "Nee",
+          "Response": false,
+          "Question": {
+            "Id": 9
+          }
+        }
+      ]
+    },
+    {
+      "Id": 10,
+      "_Question": "Waarom zou u niet uw data willen verkopen?",
+      "QuestionType": 0,
+      "OpenAnswer": [
+        {
+          "Id": 1,
+          "Title": "",
+          "Response": "",
+          "Question": {
+            "Id": 10
+          }
+        }
+      ]
+    }
+  ]
+}
