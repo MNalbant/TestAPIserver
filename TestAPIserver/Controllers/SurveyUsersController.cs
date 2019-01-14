@@ -89,17 +89,40 @@ namespace TestAPIserver.Controllers
         {
 
             var survey = await _context.Surveys.FindAsync(viewSurvey.Id);
-
-            foreach(ViewQuestion i in viewSurvey.ViewQuestions)
-            {
-
-            }
-
             SurveyUser surveyUser = new SurveyUser
             {
                 Survey = survey,
                 UserId = 1
             };
+            int count = 0;
+
+            foreach (ViewQuestion i in viewSurvey.ViewQuestions)
+            {
+                string phrase = viewSurvey.ViewQuestions[count].name;
+                string[] words = phrase.Split('-');
+
+                switch (i.QuestionType)
+                {
+                    case 0:  //open question
+                        surveyUser.Survey.Questions[int.Parse(words[0])].OpenAnswer.Response = i.value;
+                        break;
+                    case 1:  //yes or no question
+                        bool response = false;
+                        if (i.value == "ja")
+                            response = true;
+
+                        surveyUser.Survey.Questions[int.Parse(words[0])].ClosedAnswers[0].Response = response;
+                        break;
+                    case 2:  //yes or no question with open answers
+
+                        break;
+                    case 3:  //multiple choice question
+                        surveyUser.Survey.Questions[int.Parse(words[0])].ClosedAnswers[int.Parse(words[1])].Response = true;
+                        break;
+                }
+                count++;
+            }
+
 
             if (!ModelState.IsValid)
             {
