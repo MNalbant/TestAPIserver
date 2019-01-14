@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TestAPIserver.Models;
+using TestAPIserver.Models.ViewModel;
 
 namespace TestAPIserver.Controllers
 {
@@ -84,8 +85,22 @@ namespace TestAPIserver.Controllers
 
         // POST: api/SurveyUsers
         [HttpPost]
-        public async Task<IActionResult> PostSurveyUser([FromBody] SurveyUser surveyUser)
+        public async Task<IActionResult> PostSurveyUser([FromBody] ViewSurvey viewSurvey)
         {
+
+            var survey = await _context.Surveys.FindAsync(viewSurvey.Id);
+
+            foreach(ViewQuestion i in viewSurvey.ViewQuestions)
+            {
+
+            }
+
+            SurveyUser surveyUser = new SurveyUser
+            {
+                Survey = survey,
+                UserId = 1
+            };
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
