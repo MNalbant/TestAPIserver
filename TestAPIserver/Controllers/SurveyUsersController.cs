@@ -92,7 +92,7 @@ namespace TestAPIserver.Controllers
             SurveyUser surveyUser = new SurveyUser
             {
                 Survey = survey,
-                UserId = 1
+                UserId = 2
             };
             int count = 0;
 
@@ -100,6 +100,8 @@ namespace TestAPIserver.Controllers
             {
                 string phrase = viewSurvey.ViewQuestions[count].name;
                 string[] words = phrase.Split('-');
+
+                Console.WriteLine("Test1" + i);
 
                 switch (i.QuestionType)
                 {
@@ -118,7 +120,7 @@ namespace TestAPIserver.Controllers
 
                         break;
                     case 3:  //multiple choice question
-                        surveyUser.Survey.Questions[int.Parse(words[0])].ClosedAnswers[int.Parse(words[1])].Response = true;
+                        surveyUser.Survey.Questions[int.Parse(words[0])].ClosedAnswers[int.Parse(words[2])].Response = true;
                         break;
                 }
                 count++;

@@ -112,7 +112,14 @@ namespace TestAPIserver.Controllers
             }
 
             _context.Surveys.Add(survey);
-            await _context.SaveChangesAsync();
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateException e)
+            {
+                string l = "lol";
+            }
 
             return CreatedAtAction("GetSurvey", new { id = survey.Id }, survey);
         }

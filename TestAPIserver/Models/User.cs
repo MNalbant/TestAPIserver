@@ -10,7 +10,7 @@ namespace TestAPIserver.Models
     {
         public int Id { get; set; }
         //  [Required]
-        [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Use letters only please")]
+        //[RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Use letters only please")]
         public string FirstName { get; set; }
         //  [Required]
         public string LastName { get; set; }
