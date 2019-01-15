@@ -11,25 +11,19 @@ html, body {
     flex-direction: column
 }
 
-.company-logo{
-    background-image: url("../images/Logo.PNG");
-    background-repeat: no-repeat;
-    background-size: contain;
-}
 
-
-#datainsert_page form legend , #datainsert_page form label.col-form-label {
+#survey-results form legend , #survey-results form label.col-form-label {
     font-size: 1.2rem !important;
 }
 
-#datainsert_page form label {
+#survey-results form label {
     font-size: 1.05rem !important;
 }
 
-#datainsert_page form input[type=radio] , #datainsert_page form input[type=checkbox]{
+#survey-results form input[type=radio] , #survey-results form input[type=checkbox]{
     transform:scale(1.075);
 }
 
-#datainsert_page form .form-check.form-check-inline , #datainsert_page form .form-check {
+#survey-results form .form-check.form-check-inline , #survey-results form .form-check {
     margin-left: 1rem;
 }

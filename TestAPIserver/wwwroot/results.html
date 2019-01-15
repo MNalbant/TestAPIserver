@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+        crossorigin="anonymous">
+
+    <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Karla:400,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles/footer.css">
+
+    <link rel="stylesheet" href="styles/results.css">
+    <title>Data insert</title>
+</head>
+<body>
+    <section id="navheader">
+
+    </section>
+
+    <section id="survey-results" class="d-flex h-100 py-5">
+        <div class="container d-flex h-100">
+            <div class="row mx-auto my-auto w-100 align-self-center rounded py-3" style="background-color:#fff">
+                <div class="col-lg-12" style="text-align:center;">
+                    <h1 id="Survey-Title" class="bold"></h1>
+                </div>
+
+                <div class="col-lg-10 offset-lg-1 ">
+                    <form id="Main-Survey">
+                        <div id="Button-Group" class="row"  style="display:none">
+                            <div class="col-lg-6 offset-lg-3">
+                                <button type="button" class="btn btn-success submit mt-3 float-right" data-toggle="modal"
+                                    data-target="#exampleModal" >Submit</button>
+                                <button type="reset" class="btn btn-danger mt-3 float-left">Reset</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <section id="footer">
+
+    </section>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <script src="scripts/homepage.js"></script>
+
+    <script>
+        $("#navheader").load("./includes/navheader.html");
+
+        var Survey = {
+                Id: 0,
+                Title: "",
+                Description: "",
+                Reward: 0,
+                Questions: []
+            };
+
+        let AllQuestion;
+
+        $.getJSON("./test/Test-Survey-Answer.json", function (data) {
+            AllQuestion = data.Questions;
+
+            Survey.Id = data.Id
+            Survey.Title = data.Name;
+            Survey.Description = data.Description;
+            Survey.Reward = data.Reward;
+
+            
+
+            data.Questions.forEach(element => {
+                var Question = {
+                    OrderNR: 0,
+                    Name: "",
+                    Type: null,
+                    OpenAnswer: "",
+                    Options: []
+                }
+
+                Question.OrderNR = element.Id;
+                Question.Name = element._Question;
+
+                switch (element.QuestionType) {
+                    case 0:
+
+                        Question.Type = "OpenQuestion";
+                        
+                        Question.OpenAnswer = element.OpenAnswer[0].Response;
+                        break;
+                    case 1:
+
+                        element.ClosedAnswers.forEach(e => {
+                            if(e.Response)
+                            Question.Options.push("Chosen-" + e.Title)
+                            else 
+                            Question.Options.push(e.Title)
+                        });
+
+                        Question.Type = "ClosedQuestion";
+                        break;
+                    case 3:
+                        
+                        element.ClosedAnswers.forEach(e => {
+                            if(e.Response)
+                            Question.Options.push("Chosen-" + e.Title)
+                            else 
+                            Question.Options.push(e.Title)
+                        });
+
+
+
+                        Question.Type = "MultiQuestion";
+                        break;
+                }
+
+                Survey.Questions.push(Question);
+                
+            });
+
+            fillHTMl(Survey);
+        });
+
+        var MainSurvey = document.getElementById('Main-Survey');
+
+        function fillHTMl(survey) {
+
+            document.getElementById('Survey-Title').innerHTML = survey.Title;
+
+            for (var i = 0; i < survey.Questions.length; i++) {
+                // var LabelID = 'Input-Label-Question-' + survey.Questions[i].OrderNR;
+                // document.getElementById(LabelID).innerHTML = survey.Questions[i].OrderNR + '. ' + survey.Questions[i].Name;
+
+                var QuestionNumber = 'Question-' + survey.Questions[i].OrderNR;
+
+                var LabelText = survey.Questions[i].OrderNR + '. ' + survey.Questions[i].Name;
+
+                var formgroup = '<div class="form-group" id="' + QuestionNumber + '"> </div>';
+                var QuestionTitle;
+
+                $(formgroup).insertBefore("#Button-Group");
+
+                switch (survey.Questions[i].Type) {
+                    case "OpenQuestion":
+                        QuestionTitle = '<label id="Input-Label-' + QuestionNumber + '" class="col-form-label" for="Input-"' + QuestionNumber + '>' + LabelText + '</label>';
+                        $("#" + QuestionNumber).append(QuestionTitle)
+
+                        var inputfield = '<input type="text" class="form-control" disabled name="' + survey.Questions[i].OrderNR + '-Answer" id="Input-' + QuestionNumber + '" value="'+ survey.Questions[i].OpenAnswer + '">'
+                        $("#" + QuestionNumber).append(inputfield)
+                        break;
+
+                    case "ClosedQuestion":
+                        QuestionTitle = '<legend id="Input-Label-' + QuestionNumber + '" class="col-form-label">' + LabelText + '</legend>';
+                        $("#" + QuestionNumber).append(QuestionTitle)
+
+                        for (var j = 0; j < survey.Questions[i].Options.length; j++) {
+                            var RadioBTNID = 'Input-Question-' + survey.Questions[i].OrderNR + '-Option-' + (j + 1);
+                            var RadioInlineID = QuestionNumber + "-" + "inlineRadio" + (j + 1);
+                            // document.getElementById(RadioBTNID).innerHTML = survey.Questions[i].Options[j];
+
+                            var RadioBTNTitle;
+
+                            let SplittedTitle = survey.Questions[i].Options[j].split("-");
+                            var RadioBTNState = "";
+
+                            if(SplittedTitle[0] === "Chosen" ){
+                                RadioBTNTitle = SplittedTitle[1];
+                                RadioBTNState = "checked"
+                            } else {
+                                RadioBTNTitle = SplittedTitle[0];
+                            }
+                            
+                            var Radiobtn = '<div class="form-check form-check-inline">' +
+                                '<input class="form-check-input" type="radio"'+RadioBTNState+'  disabled name="' + survey.Questions[i].OrderNR + '-Answer" id="' + RadioInlineID + '" value="' + RadioBTNTitle  + '">' +
+                                '<label id="' + RadioBTNID + '" class="form-check-label" for="' + RadioInlineID + '"> ' + RadioBTNTitle + '</label>' +
+                                '</div>';
+                            $("#" + QuestionNumber).append(Radiobtn)
+                        }
+                        break;
+
+                    case "MultiQuestion":
+                        QuestionTitle = '<legend id="Input-Label-' + QuestionNumber + '" class="col-form-label">' + LabelText + '</legend>';
+                        $("#" + QuestionNumber).append(QuestionTitle)
+
+                        for (var j = 0; j < survey.Questions[i].Options.length; j++) {
+                            var CheckBoxID = 'Question-' + survey.Questions[i].OrderNR + '-checkbox-' + (j + 1);
+
+                            // document.getElementById(RadioBTNID).innerHTML = survey.Questions[i].Options[j];
+
+                            var CheckBoxTitle;
+
+                            let SplittedTitle = survey.Questions[i].Options[j].split("-");
+                            var checkBTNState = "";
+
+                            if(SplittedTitle[0] === "Chosen" ){
+                                CheckBoxTitle = SplittedTitle[1];
+                                checkBTNState = "checked"
+                            } else {
+                                CheckBoxTitle = SplittedTitle[0];
+                            }
+
+                            var CheckBoxbtn = '<div class="form-check">' + 
+                                '<input class="form-check-input" type="checkbox" '+checkBTNState+' disabled name="' + survey.Questions[i].OrderNR + '-Answer-' + (j + 1) + '" id="' + CheckBoxID + '" value="'+ CheckBoxTitle + '">' + 
+                                '<label id="Input-Question-' + survey.Questions[i].OrderNR + '-Option-' + (j + 1)+ '" class="form-check-label" for="' + CheckBoxID + '"> ' + CheckBoxTitle + '</label>' + 
+                                '</div>';
+                            
+                            $("#" + QuestionNumber).append(CheckBoxbtn);
+                        }
+                        break;
+
+                }
+            }
+        }
+    </script>
+</body>
+</html>

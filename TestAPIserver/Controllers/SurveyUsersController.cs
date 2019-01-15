@@ -112,6 +112,7 @@ namespace TestAPIserver.Controllers
                             response = true;
 
                         surveyUser.Survey.Questions[int.Parse(words[0])].ClosedAnswers[0].Response = response;
+                         response = false;
                         break;
                     case 2:  //yes or no question with open answers
 

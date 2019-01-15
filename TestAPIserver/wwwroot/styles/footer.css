@@ -1,7 +1,15 @@
+    #footer {
+        max-height: 22vh;
+        min-height: 22vh;
+    }
+
     footer {
         background-color: #f8f9fa;
         font-family: 'Roboto Slab', serif;
         color: #01233f;
+
+        width: 100%;
+        
     }
 
     footer hr.style14 {
