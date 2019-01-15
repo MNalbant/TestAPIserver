@@ -88,74 +88,79 @@ namespace TestAPIserver.Controllers
         public async Task<IActionResult> PostSurveyUser([FromBody] ViewSurvey viewSurvey)
         {
 
-            var survey = await _context.Surveys.FindAsync(viewSurvey.Id);
-            SurveyUser surveyUser = new SurveyUser
-            {
-                Survey = survey,
-                UserId = 2
-            };
-            int count = 0;
+            var survey = await _context.Surveys.Include("Questions.ClosedAnswers")
+                .Where(s => s.Id == viewSurvey.Id).FirstOrDefaultAsync<Survey>();
 
-            foreach (ViewQuestion i in viewSurvey.ViewQuestions)
-            {
-                string phrase = viewSurvey.ViewQuestions[count].name;
-                string[] words = phrase.Split('-');
 
-                Console.WriteLine("Test1" + i);
 
-                switch (i.QuestionType)
+                SurveyUser surveyUser = new SurveyUser
                 {
-                    case 0:  //open question
-                        surveyUser.Survey.Questions[int.Parse(words[0])].OpenAnswer.Response = i.value;
-                        break;
-                    case 1:  //yes or no question
-                        bool response = false;
-                        if (i.value == "ja")
-                            response = true;
+                    Survey = survey,
+                    UserId = 2
+                };
+                int count = 0;
 
-                        surveyUser.Survey.Questions[int.Parse(words[0])].ClosedAnswers[0].Response = response;
-                         response = false;
-                        break;
-                    case 2:  //yes or no question with open answers
-
-                        break;
-                    case 3:  //multiple choice question
-                        surveyUser.Survey.Questions[int.Parse(words[0])].ClosedAnswers[int.Parse(words[2])].Response = true;
-                        break;
-                }
-                count++;
-            }
-
-
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            if (FilledSurvey(surveyUser))
-            {
-                _context.SurveyUsers.Add(surveyUser);
-
-                try
+                foreach (ViewQuestion i in viewSurvey.ViewQuestions)
                 {
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateException)
-                {
-                    if (SurveyUserExists(surveyUser.SurveyId))
+                    string phrase = viewSurvey.ViewQuestions[count].name;
+                    string[] words = phrase.Split('-');
+
+                    Console.WriteLine("Test1" + i);
+
+                    switch (i.QuestionType)
                     {
-                        return new StatusCodeResult(StatusCodes.Status409Conflict);
+                        case 0:  //open question
+                            surveyUser.Survey.Questions[int.Parse(words[0])].OpenAnswer.Response = i.value;
+                            break;
+                        case 1:  //yes or no question
+                            bool response = false;
+                            if (i.value == "ja")
+                                response = true;
+
+                            surveyUser.Survey.Questions[int.Parse(words[0])].ClosedAnswers[0].Response = response;
+                            response = false;
+                            break;
+                        case 2:  //yes or no question with open answers
+
+                            break;
+                        case 3:  //multiple choice question
+                            surveyUser.Survey.Questions[int.Parse(words[0])].ClosedAnswers[int.Parse(words[2])].Response = true;
+                            break;
                     }
-                    else
+                    count++;
+                }
+
+
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                if (FilledSurvey(surveyUser))
+                {
+                    _context.SurveyUsers.Add(surveyUser);
+
+                    try
                     {
-                        throw;
+                        await _context.SaveChangesAsync();
+                    }
+                    catch (DbUpdateException)
+                    {
+                        if (SurveyUserExists(surveyUser.SurveyId))
+                        {
+                            return new StatusCodeResult(StatusCodes.Status409Conflict);
+                        }
+                        else
+                        {
+                            throw;
+                        }
                     }
                 }
-            }
-            else { return new StatusCodeResult(StatusCodes.Status400BadRequest); }
+                else { return new StatusCodeResult(StatusCodes.Status400BadRequest); }
 
 
-            return CreatedAtAction("GetSurveyUser", new { id = surveyUser.SurveyId }, surveyUser);
+                return CreatedAtAction("GetSurveyUser", new { id = surveyUser.SurveyId }, surveyUser);
+            
         }
 
         private bool FilledSurvey(SurveyUser surveyUser)
